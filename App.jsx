@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import {
-  Alert,
   StyleSheet,
   Text,
   View,
@@ -11,6 +10,7 @@ import {
 
 import { handleButtonPress } from "./components/Button";
 import { handleTouchButtonPress } from "./components/CustomButton";
+import Card from "./components/Card";
 
 export default function App() {
   return (
@@ -32,6 +32,8 @@ export default function App() {
       >
         <Text style={styles.buttonText}>Touchable Button</Text>
       </TouchableOpacity>
+
+      <Card />
     </View>
   );
 }
@@ -39,7 +41,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#eee",
     alignItems: "center",
     justifyContent: "center",
   },
