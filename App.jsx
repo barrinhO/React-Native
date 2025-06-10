@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
-
+import { StyleSheet, Text, View, Image, Alert } from "react-native";
+import CustomCard from "./components/CustomCard";
 import Card from "./components/Card";
 import Header from "./components/Header";
 
@@ -17,8 +17,23 @@ export default function App() {
       </View>
 
       <View>
-        <Card style={styles.card1} text={"This is a card"} />
-        <Card style={styles.card2} text={"This is another card"} />
+        <Card style={styles.card1} text={"Card 1"} />
+        <Card style={styles.card2} text={"Card 2"} />
+        <CustomCard
+          title={"Custom Card - 1"}
+          bgColor={"red"}
+          onPress={() => Alert.alert("Custom Card - 1 CLICKED")}
+        />
+        <CustomCard
+          title={"Custom Card - 2"}
+          bgColor={"blue"}
+          onPress={() => Alert.alert("Custom Card - 2 CLICKED")}
+        />
+        <CustomCard
+          title={"Custom Card - 3"}
+          bgColor={"green"}
+          onPress={() => Alert.alert("Custom Card - 3 CLICKED")}
+        />
       </View>
     </View>
   );

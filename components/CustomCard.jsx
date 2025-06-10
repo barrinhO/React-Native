@@ -1,20 +1,20 @@
-import { Text, StyleSheet, Alert, TouchableOpacity, View } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function Card({ text }) {
+export default function CustomCard({ title, bgColor, onPress }) {
   return (
-    <View style={styles.cardSection}>
+    <View style={styles.customCardSection}>
       <TouchableOpacity
-        onPress={() => Alert.alert(`You pressed the card`)}
-        style={styles.card}
+        onPress={onPress}
+        style={[styles.card, { backgroundColor: bgColor }]}
       >
-        <Text style={styles.cardText}>{text}</Text>
+        <Text style={styles.cardText}>{title}</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  cardSection: {
+  customCardSection: {
     display: "flex",
     flexDirection: "column",
     marginBottom: 25,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
   cardText: {
     textAlign: "center",
-    color: "#000",
+    color: "#fff",
     fontWeight: "bold",
     fontSize: 26,
   },
