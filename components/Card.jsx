@@ -2,7 +2,7 @@ import { Text, StyleSheet, Alert, TouchableOpacity, View } from "react-native";
 
 export default function Card({ text }) {
   return (
-    <View style={styles.container}>
+    <View style={styles.cardSection}>
       <TouchableOpacity
         onPress={() => Alert.alert(`You pressed the card \n${text}`)}
         style={styles.card}
@@ -14,7 +14,7 @@ export default function Card({ text }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  cardSection: {
     display: "flex",
     flexDirection: "column",
     marginBottom: 25,

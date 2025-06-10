@@ -11,12 +11,7 @@ export default function App() {
       <Header />
 
       <View style={styles.contentCenter}>
-        <Image
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
-          style={styles.image}
-        />
+        <Image source={require("./assets/mup.png")} style={styles.image} />
 
         <Text style={styles.centerMessage}>Hello, welcome to React Native</Text>
       </View>
@@ -42,6 +37,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     marginBottom: 20,
+    borderRadius: 5,
   },
 
   contentCenter: {
