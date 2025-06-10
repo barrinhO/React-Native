@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#4CAF50",
     padding: 20,
     alignItems: "center",
-    justifyContent: "center",
+    width: "100%",
   },
 
   headerText: {

@@ -1,50 +1,30 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
-import { handleButtonPress } from "./components/Button";
-import { handleTouchButtonPress } from "./components/CustomButton";
 import Card from "./components/Card";
 import Header from "./components/Header";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Header />
-      <Text style={styles.title}>Hello World!!</Text>
-      <Image
-        source={{
-          uri: "https://imgs.search.brave.com/SUkv4wN1Jb4apsztlxX3dIACgf17gVZUnQ6jIjZYmwk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTA4/MzQ3Mjk1L3Bob3Rv/L2RlZXItY2VvLWF0/LWhpcy1kZXNrLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1R/bHJ6YVZ0WEFqejhZ/YjdaQVUyNTg3Q2Ft/dWthWTdFVzRTY2hH/YlZYczYwPQ",
-        }}
-        style={styles.image}
-      />
       <StatusBar style="auto" />
+      <Header />
 
-      <Button title="Clique here" onPress={handleButtonPress} />
+      <View style={styles.contentCenter}>
+        <Image
+          source={{
+            uri: "https://reactnative.dev/img/tiny_logo.png",
+          }}
+          style={styles.image}
+        />
 
-      <TouchableOpacity
-        style={styles.customButton}
-        onPress={handleTouchButtonPress}
-      >
-        <Text style={styles.buttonText}>Touchable Button 1</Text>
-      </TouchableOpacity>
+        <Text style={styles.centerMessage}>Hello, welcome to React Native</Text>
+      </View>
 
-      <TouchableOpacity
-        style={styles.customButton2}
-        onPress={() => Alert.alert("Alert", "You pressed Touchable Button 2")}
-      >
-        <Text style={styles.buttonText2}>Touchable Button 2</Text>
-      </TouchableOpacity>
-
-      <Card text={"This is a card"} />
-      <Card text={"This is another card"} />
+      <View>
+        <Card style={styles.card1} text={"This is a card"} />
+        <Card style={styles.card2} text={"This is another card"} />
+      </View>
     </View>
   );
 }
@@ -54,51 +34,27 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#eee",
     alignItems: "center",
-    justifyContent: "center",
-  },
-
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
+    justifyContent: "space-between",
+    width: "100%",
   },
 
   image: {
     width: 150,
     height: 150,
     marginBottom: 20,
-    borderRadius: 10,
   },
 
-  customButton: {
-    padding: 10,
-    borderRadius: 5,
-    color: "white",
-    textAlign: "center",
+  contentCenter: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
-  buttonText: {
-    backgroundColor: "#333",
-    color: "#fff",
-    fontSize: 16,
+  centerMessage: {
+    color: "#000",
+    fontSize: 30,
     textAlign: "center",
-    padding: 10,
-    borderRadius: 5,
-  },
-
-  customButton2: {
-    padding: 10,
-    borderRadius: 5,
-    color: "white",
-    textAlign: "center",
-  },
-
-  buttonText2: {
-    backgroundColor: "blue",
-    color: "#fff",
-    fontSize: 16,
-    textAlign: "center",
-    padding: 10,
-    borderRadius: 5,
+    marginTop: 10,
+    fontWeight: "bold",
   },
 });
