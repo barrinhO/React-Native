@@ -6,15 +6,18 @@ import {
   Image,
   Button,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 
 import { handleButtonPress } from "./components/Button";
 import { handleTouchButtonPress } from "./components/CustomButton";
 import Card from "./components/Card";
+import Header from "./components/Header";
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <Header />
       <Text style={styles.title}>Hello World!!</Text>
       <Image
         source={{
@@ -30,7 +33,14 @@ export default function App() {
         style={styles.customButton}
         onPress={handleTouchButtonPress}
       >
-        <Text style={styles.buttonText}>Touchable Button</Text>
+        <Text style={styles.buttonText}>Touchable Button 1</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.customButton2}
+        onPress={() => Alert.alert("Alert", "You pressed Touchable Button 2")}
+      >
+        <Text style={styles.buttonText2}>Touchable Button 2</Text>
       </TouchableOpacity>
 
       <Card text={"This is a card"} />
@@ -61,7 +71,6 @@ const styles = StyleSheet.create({
   },
 
   customButton: {
-    backgroundColor: "",
     padding: 10,
     borderRadius: 5,
     color: "white",
@@ -70,6 +79,22 @@ const styles = StyleSheet.create({
 
   buttonText: {
     backgroundColor: "#333",
+    color: "#fff",
+    fontSize: 16,
+    textAlign: "center",
+    padding: 10,
+    borderRadius: 5,
+  },
+
+  customButton2: {
+    padding: 10,
+    borderRadius: 5,
+    color: "white",
+    textAlign: "center",
+  },
+
+  buttonText2: {
+    backgroundColor: "blue",
     color: "#fff",
     fontSize: 16,
     textAlign: "center",
