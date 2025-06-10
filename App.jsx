@@ -18,7 +18,7 @@ export default function App() {
       <Text style={styles.title}>Hello World!!</Text>
       <Image
         source={{
-          uri: "https://imgs.search.brave.com/SlTHWuHDew_O26Ziha9_b4os6wIvUZzdhF65Q5CWYM4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTI1/NTkwNTMzMS9mci9w/aG90by9waG90b2dy/YXBoZS1kZS12b3lh/Z2UtcmV0ZW5hbnQt/ZGVzLWltYWdlcy12/dWUtc3VwJUMzJUE5/cmlldXJlLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1nRHZX/T1ZfWHVWdER4SEgw/Z0Z2bGdhTUhCMFpO/dzhhUkF6NXFRakVo/TUxnPQ",
+          uri: "https://imgs.search.brave.com/SUkv4wN1Jb4apsztlxX3dIACgf17gVZUnQ6jIjZYmwk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTA4/MzQ3Mjk1L3Bob3Rv/L2RlZXItY2VvLWF0/LWhpcy1kZXNrLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1R/bHJ6YVZ0WEFqejhZ/YjdaQVUyNTg3Q2Ft/dWthWTdFVzRTY2hH/YlZYczYwPQ",
         }}
         style={styles.image}
       />
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     marginBottom: 20,
+    borderRadius: 10,
   },
 
   customButton: {

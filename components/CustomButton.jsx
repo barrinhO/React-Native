@@ -1,3 +1,5 @@
-export default function handleTouchButtonPress() {
-  Alert.alert("Button Pressed", "You pressed the touchable button!");
-}
+import { Alert } from "react-native";
+
+export const handleTouchButtonPress = () => {
+  Alert.alert("Alerta", "Você tocou no botão customizado!");
+};

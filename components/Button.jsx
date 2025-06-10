@@ -1,3 +1,5 @@
-export default function handleButtonPress() {
-  Alert.alert("Button Pressed", "You pressed the button!");
-}
+import { Alert } from "react-native";
+
+export const handleButtonPress = () => {
+  Alert.alert("Alerta", "Você clicou no botão!");
+};
