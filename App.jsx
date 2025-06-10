@@ -24,7 +24,7 @@ export default function App() {
       />
       <StatusBar style="auto" />
 
-      <Button title="Clique aqui" onPress={handleButtonPress} />
+      <Button title="Clique here" onPress={handleButtonPress} />
 
       <TouchableOpacity
         style={styles.customButton}
@@ -33,7 +33,8 @@ export default function App() {
         <Text style={styles.buttonText}>Touchable Button</Text>
       </TouchableOpacity>
 
-      <Card />
+      <Card text={"This is a card"} />
+      <Card text={"This is another card"} />
     </View>
   );
 }
