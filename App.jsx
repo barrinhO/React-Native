@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen"; // Import your DetailsScreen component
+import ProfileScreen from "./screens/ProfileScreen";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,12 @@ export default function App() {
           name="Details"
           component={DetailsScreen}
           options={styles.DetailsScreen}
+        />
+
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={styles.ProfileScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -58,7 +65,7 @@ const styles = StyleSheet.create({
   HomeScreen: {
     title: "Home",
     headerStyle: {
-      backgroundColor: "#f4511e",
+      backgroundColor: "#1061A8",
     },
     headerTintColor: "#fff",
     headerTitleStyle: {
@@ -69,7 +76,18 @@ const styles = StyleSheet.create({
   DetailsScreen: {
     title: "Detalhes",
     headerStyle: {
-      backgroundColor: "#f4511e",
+      backgroundColor: "#1061A8",
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold",
+    },
+  },
+
+  ProfileScreen: {
+    title: "Perfil",
+    headerStyle: {
+      backgroundColor: "#1061A8",
     },
     headerTintColor: "#fff",
     headerTitleStyle: {
