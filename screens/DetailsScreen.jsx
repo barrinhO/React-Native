@@ -1,5 +1,4 @@
-import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import CustomCard from "../components/CustomCard";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -23,12 +22,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
   },
   title: {
-    fontSize: 24,
+    fontSize: 34,
     fontWeight: "bold",
     marginBottom: 20,
   },
   button: {
-    padding: 10,
+    padding: 15,
     backgroundColor: "red",
     borderRadius: 5,
   },

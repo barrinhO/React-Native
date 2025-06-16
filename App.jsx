@@ -1,8 +1,4 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, Alert } from "react-native";
-import CustomCard from "./components/CustomCard";
-import Card from "./components/Card";
-import Header from "./components/Header";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
@@ -14,8 +10,16 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={styles.HomeScreen}
+        />
+        <Stack.Screen
+          name="Details"
+          component={DetailsScreen}
+          options={styles.DetailsScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -49,5 +53,27 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     fontWeight: "bold",
+  },
+
+  HomeScreen: {
+    title: "Home",
+    headerStyle: {
+      backgroundColor: "#f4511e",
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold",
+    },
+  },
+
+  DetailsScreen: {
+    title: "Detalhes",
+    headerStyle: {
+      backgroundColor: "#f4511e",
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold",
+    },
   },
 });
