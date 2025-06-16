@@ -1,23 +1,39 @@
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 
 export default function ProfileScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tela de Perfil</Text>
+      <Image
+        style={styles.profileImage}
+        source={require("../assets/image.png")}
+      />
+      <Text style={styles.name}>Christian Moreira</Text>
+      <Text style={styles.info}>Idade: 16 anos</Text>
+      <Text style={styles.info}>Curso: Desenvolvimento de Sistemas</Text>
 
-      <TouchableOpacity
-        style={styles.button2}
-        onPress={() => navigation.navigate("Details")}
-      >
-        <Text style={styles.buttonText2}>Ir para detalhes</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Text style={styles.buttonText}>Voltar para Home</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Home")}
-      >
-        <Text style={styles.buttonText}>Voltar para home</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, styles.secondaryButton]}
+          onPress={() =>
+            navigation.navigate("Details", {
+              nome: "Christian Moreira",
+              idade: "16 anos",
+              curso: "Desenvolvimento de Sistemas",
+              mensagem: "Estudando para ser um ótimo desenvolvedor!",
+              imagem: require("../assets/image.png"),
+            })
+          }
+        >
+          <Text style={styles.buttonText}>Ir para Detalhes</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -25,33 +41,46 @@ export default function ProfileScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: "#f2f2f2",
     alignItems: "center",
     justifyContent: "center",
+    padding: 20,
   },
-  title: {
-    fontSize: 34,
-    fontWeight: "bold",
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
     marginBottom: 20,
+  },
+  name: {
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: "#222",
+  },
+  info: {
+    fontSize: 18,
+    marginBottom: 5,
+    color: "#333",
+  },
+  buttonContainer: {
+    marginTop: 40,
+    width: "100%",
+    alignItems: "center",
   },
   button: {
-    backgroundColor: "red",
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: "#007AFF",
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    marginVertical: 10,
+    width: "80%",
+    alignItems: "center",
+  },
+  secondaryButton: {
+    backgroundColor: "#34C759", // um verde para destacar da navegação
   },
   buttonText: {
-    color: "#fff",
-    fontSize: 16,
-  },
-
-  button2: {
-    backgroundColor: "blue",
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 20,
-  },
-
-  buttonText2: {
     color: "#fff",
     fontSize: 16,
   },

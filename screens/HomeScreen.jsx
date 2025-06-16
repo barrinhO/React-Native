@@ -7,7 +7,13 @@ export default function HomeScreen({ navigation }) {
       <TouchableOpacity
         style={styles.button}
         onPress={() =>
-          navigation.navigate("Details", { mensagem: "Olá, do home!" })
+          navigation.navigate("Details", {
+            nome: "Christian Moreira",
+            idade: "16 anos",
+            curso: "Desenvolvimento de Sistemas",
+            mensagem: "Estudando para ser um ótimo desenvolvedor!",
+            imagem: require("../assets/image.png"),
+          })
         }
       >
         <Text style={styles.buttonText}>Ir para Detalhes</Text>
