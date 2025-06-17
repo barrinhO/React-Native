@@ -2,8 +2,9 @@ import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
-import DetailsScreen from "./screens/DetailsScreen"; // Import your DetailsScreen component
+import DetailsScreen from "./screens/DetailsScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import ScrollScreen from "./screens/ScrollScreen";
 
 const Stack = createStackNavigator();
 
@@ -27,71 +28,35 @@ export default function App() {
           component={ProfileScreen}
           options={styles.ProfileScreen}
         />
+
+        <Stack.Screen
+          name="Scroll"
+          component={ScrollScreen}
+          options={{
+            title: "ScrollView",
+            headerStyle: { backgroundColor: "28a745" },
+            headerTintColor: "fff",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#eee",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-  },
-
-  image: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
-    borderRadius: 5,
-  },
-
-  contentCenter: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  centerMessage: {
-    color: "#000",
-    fontSize: 30,
-    textAlign: "center",
-    marginTop: 10,
-    fontWeight: "bold",
-  },
-
   HomeScreen: {
     title: "Home",
-    headerStyle: {
-      backgroundColor: "#1061A8",
-    },
+    headerStyle: { backgroundColor: "#007bff" },
     headerTintColor: "#fff",
-    headerTitleStyle: {
-      fontWeight: "bold",
-    },
   },
-
   DetailsScreen: {
     title: "Detalhes",
-    headerStyle: {
-      backgroundColor: "#1061A8",
-    },
+    headerStyle: { backgroundColor: "#28a745" },
     headerTintColor: "#fff",
-    headerTitleStyle: {
-      fontWeight: "bold",
-    },
   },
-
   ProfileScreen: {
     title: "Perfil",
-    headerStyle: {
-      backgroundColor: "#1061A8",
-    },
+    headerStyle: { backgroundColor: "#6c757d" },
     headerTintColor: "#fff",
-    headerTitleStyle: {
-      fontWeight: "bold",
-    },
   },
 });

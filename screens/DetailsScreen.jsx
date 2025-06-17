@@ -1,22 +1,19 @@
-import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 export default function DetailScreen({ navigation, route }) {
-  const { mensagem, nome, idade, curso, imagem } = route.params || {};
+  const { item } = route.params || {};
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Detalhes da Pessoa</Text>
-
-      <Image
-        style={styles.profileImage}
-        source={imagem || require("../assets/image.png")}
-      />
-
-      <Text style={styles.name}>{nome || "Nome não informado"}</Text>
-      <Text style={styles.info}>Idade: {idade || "Não informada"}</Text>
-      <Text style={styles.info}>Curso: {curso || "Não informado"}</Text>
-
-      {mensagem && <Text style={styles.mensagem}>“{mensagem}”</Text>}
+      <Text style={styles.title}>Detalhes do item</Text>
+      {item ? (
+        <>
+          <Text style={styles.itemTitle}>{item.title}</Text>
+          <Text style={styles.itemDescription}>{item.description}</Text>
+        </>
+      ) : (
+        <Text style={styles.message}>Nenhum item selecionado.</Text>
+      )}
 
       <TouchableOpacity
         style={styles.button}
@@ -31,48 +28,35 @@ export default function DetailScreen({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
-    alignItems: "center",
-    justifyContent: "center",
     padding: 20,
+    backgroundColor: "#fff",
   },
   title: {
-    fontSize: 26,
-    fontWeight: "600",
-    marginBottom: 20,
-    color: "#333",
-  },
-  profileImage: {
-    width: 130,
-    height: 130,
-    borderRadius: 65,
-    marginBottom: 15,
-  },
-  name: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 8,
-    color: "#222",
+    marginBottom: 20,
   },
-  info: {
-    fontSize: 18,
-    marginBottom: 4,
-    color: "#555",
+  itemTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
   },
-  mensagem: {
-    marginTop: 20,
+  itemDescription: {
     fontSize: 16,
-    fontStyle: "italic",
+    color: "#555",
+    marginBottom: 20,
+  },
+  message: {
+    fontSize: 16,
+    color: "#888",
     textAlign: "center",
-    color: "#666",
-    paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: "#007AFF",
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 8,
-    marginTop: 30,
+    backgroundColor: "#007BFF",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
   },
   buttonText: {
     color: "#fff",
