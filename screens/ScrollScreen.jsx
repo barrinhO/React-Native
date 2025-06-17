@@ -10,19 +10,23 @@ export default function ScrollScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tela com ScrollView</Text>
-      <ScrollView style={styles.scrollContainer}>
+      <ScrollView
+        style={styles.scrollContainer}
+        contentContainerStyle={styles.scrollContent}
+      >
         {Array.from({ length: 20 }).map((_, index) => (
           <View key={index} style={styles.item}>
             <Text style={styles.itemText}>Item {index + 1}</Text>
           </View>
         ))}
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Text style={styles.buttonText}>Voltar para Home</Text>
+        </TouchableOpacity>
       </ScrollView>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Home")}
-      >
-        <Text style={styles.buttonText}>Voltar para Home</Text>
-      </TouchableOpacity>
     </View>
   );
 }
@@ -31,17 +35,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 10,
+    textAlign: "center",
   },
   scrollContainer: {
-    width: "100%",
+    flex: 1,
+  },
+  scrollContent: {
+    paddingBottom: 40,
   },
   item: {
     padding: 20,
@@ -54,10 +61,12 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
+    marginBottom: 30,
     paddingVertical: 10,
     paddingHorizontal: 20,
     backgroundColor: "#007BFF",
     borderRadius: 5,
+    alignSelf: "center",
   },
   buttonText: {
     color: "#fff",

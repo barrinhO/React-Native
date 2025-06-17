@@ -34,8 +34,8 @@ export default function App() {
           component={ScrollScreen}
           options={{
             title: "ScrollView",
-            headerStyle: { backgroundColor: "28a745" },
-            headerTintColor: "fff",
+            headerStyle: { backgroundColor: "#28a745" },
+            headerTintColor: "#fff",
           }}
         />
       </Stack.Navigator>
@@ -45,7 +45,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   HomeScreen: {
-    title: "Home",
+    title: "Home - FlatList",
     headerStyle: { backgroundColor: "#007bff" },
     headerTintColor: "#fff",
   },

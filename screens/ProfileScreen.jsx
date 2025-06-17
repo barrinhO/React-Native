@@ -13,16 +13,16 @@ export default function ProfileScreen({ navigation }) {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={(styles.button, { backgroundColor: "#34C759" })}
+        style={[styles.button, { backgroundColor: "#34C759" }]}
         onPress={() =>
           navigation.navigate("Details", { message: "Olá, do perfil!" })
         }
       >
-        <Text style={styles.buttonText}>Voltar para Home</Text>
+        <Text style={styles.buttonText}>Ir para Detalhes</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={(styles.button, { backgroundColor: "#007bff" })}
+        style={[styles.button, { backgroundColor: "#007bff" }]}
         onPress={() => navigation.navigate("Scroll")}
       >
         <Text style={styles.buttonText}>Ir para ScrollView</Text>
