@@ -1,45 +1,53 @@
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
 
-const DATA = Array.from({ length: 12 }).map((_, i) => ({
-  id: (i + 1).toString(),
-  title: `Item ${i + 1}`,
-  description: `Descrição do Item ${i + 1}`,
-}));
+import { useState, useEffect } from "react";
 
 export default function HomeScreen({ navigation }) {
-  const renderItem = ({ item }) => (
-    <TouchableOpacity
-      style={styles.card}
-      onPress={() => navigation.navigate("Details", { item })}
-    >
-      <Text style={styles.cardTitle}>{item.title}</Text>
-      <Text style={styles.cardDescription}>{item.description}</Text>
-    </TouchableOpacity>
-  );
+  const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    if (count === 10) {
+      Alert.alert("congrats, você atingiu 10 clicks!");
+    }
+    if (count < 0) {
+      Alert.alert("O contador não pode ser negativo!");
+      setCount(0);
+    }
+  }, [count]);
   return (
     <View style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContent}
-        ListHeaderComponent={<Text style={styles.title}>Lista de Itens</Text>}
-        ListFooterComponent={
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate("Scroll")}
-          >
-            <Text style={styles.buttonText}>Ir para ScrollView</Text>
-          </TouchableOpacity>
-        }
-      />
+      <Text style={styles.title}>Lista de items</Text>
+      <View style={styles.counterContainer}>
+        <Text style={styles.counterText}>Contador: {count}</Text>
+
+        <TouchableOpacity
+          style={styles.counterButton}
+          onPress={() => setCount((prev) => prev + 1)}
+        >
+          <Text style={styles.buttonText}>Incrementar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.counterButton}
+          onPress={() => setCount((prev) => Math.max(0, prev - 1))}
+        >
+          <Text style={styles.buttonText}>Decrementar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.counterButton, { backgroundColor: "#ff0000" }]}
+          onPress={() => setCount(0)}
+        >
+          <Text style={styles.buttonText}>Reset</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.counterButton, { backgroundColor: "#ff0000" }]}
+          onPress={() => navigation.navigate("Profile")}
+        >
+          <Text style={styles.buttonText}>Ir para perfil</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -47,42 +55,27 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-  },
-  listContent: {
-    padding: 20,
-    paddingBottom: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f0f0f0",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
   },
-  card: {
-    backgroundColor: "#f9f9f9",
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 1.41,
-    elevation: 2,
-  },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  cardDescription: {
-    fontSize: 14,
-    color: "#666",
-  },
-  button: {
-    backgroundColor: "#007bff",
-    padding: 15,
-    borderRadius: 5,
-    marginTop: 20,
+  counterContainer: {
     alignItems: "center",
+  },
+  counterText: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  counterButton: {
+    backgroundColor: "#007bff",
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 5,
   },
   buttonText: {
     color: "#fff",

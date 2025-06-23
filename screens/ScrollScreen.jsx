@@ -5,8 +5,11 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
+import { useState } from "react";
 
 export default function ScrollScreen({ navigation }) {
+  const [clickCount, setClickCount] = useState(0);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tela com ScrollView</Text>
@@ -15,10 +18,21 @@ export default function ScrollScreen({ navigation }) {
         contentContainerStyle={styles.scrollContent}
       >
         {Array.from({ length: 20 }).map((_, index) => (
-          <View key={index} style={styles.item}>
+          <TouchableOpacity
+            key={index}
+            style={styles.item}
+            onPress={() => {
+              setClickCount((prevCount) => prevCount + 1);
+              navigation.navigate("Details", {
+                mensagem: `Item ${index + 1} clicado!`,
+              });
+            }}
+          >
             <Text style={styles.itemText}>Item {index + 1}</Text>
-          </View>
+          </TouchableOpacity>
         ))}
+
+        <Text style={styles.counterText}>Itens clicados: {clickCount}</Text>
 
         <TouchableOpacity
           style={styles.button}
@@ -58,6 +72,14 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 18,
+  },
+  counterText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
+    marginTop: 20,
+    marginBottom: 10,
   },
   button: {
     marginTop: 20,
