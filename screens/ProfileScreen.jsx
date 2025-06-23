@@ -41,25 +41,36 @@ export default function ProfileScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
-    alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#f0f0f0",
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 20,
+    textAlign: "center",
+    marginBottom: 30,
   },
   button: {
-    backgroundColor: "#007bff",
+    width: "80%",
     padding: 15,
     borderRadius: 5,
     marginVertical: 10,
-    width: "80%",
+    alignSelf: "center",
     alignItems: "center",
+  },
+  infoButton: {
+    backgroundColor: "#17a2b8", // azul claro
+  },
+  successButton: {
+    backgroundColor: "#28a745", // verde
+  },
+  warningButton: {
+    backgroundColor: "#ffc107", // amarelo
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
+    fontWeight: "bold",
   },
 });

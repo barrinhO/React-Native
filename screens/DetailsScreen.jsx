@@ -32,14 +32,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#fff",
     justifyContent: "center",
+    alignItems: "center",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    textAlign: "center",
+  },
+  mensagem: {
+    fontSize: 16,
+    color: "blue",
+    marginBottom: 20,
   },
   itemTitle: {
     fontSize: 20,
@@ -48,27 +52,19 @@ const styles = StyleSheet.create({
   },
   itemDescription: {
     fontSize: 16,
-    color: "#555",
-    marginBottom: 20,
-  },
-  mensagem: {
-    fontSize: 18,
-    color: "#333",
-    textAlign: "center",
+    color: "gray",
     marginBottom: 20,
   },
   message: {
     fontSize: 16,
-    color: "#888",
-    textAlign: "center",
+    color: "red",
+    marginBottom: 20,
   },
   button: {
     backgroundColor: "#007BFF",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
-    alignItems: "center",
-    alignSelf: "center",
   },
   buttonText: {
     color: "#fff",

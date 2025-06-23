@@ -1,5 +1,4 @@
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-
 import { useState, useEffect } from "react";
 
 export default function HomeScreen({ navigation }) {
@@ -7,45 +6,51 @@ export default function HomeScreen({ navigation }) {
 
   useEffect(() => {
     if (count === 10) {
-      Alert.alert("congrats, você atingiu 10 clicks!");
+      Alert.alert("nice!", "Você cricko 10 veiz!");
     }
     if (count < 0) {
-      Alert.alert("O contador não pode ser negativo!");
+      Alert.alert("Aviso", "O contador não pode ser negativo!");
       setCount(0);
     }
   }, [count]);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lista de items</Text>
-      <View style={styles.counterContainer}>
+      <Text style={styles.title}>Tela Inicial</Text>
+
+      <View style={styles.counterBox}>
         <Text style={styles.counterText}>Contador: {count}</Text>
 
-        <TouchableOpacity
-          style={styles.counterButton}
-          onPress={() => setCount((prev) => prev + 1)}
-        >
-          <Text style={styles.buttonText}>Incrementar</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonGroup}>
+          <TouchableOpacity
+            style={[styles.button, styles.increment]}
+            onPress={() => setCount((prev) => prev + 1)}
+          >
+            <Text style={styles.buttonText}>Incrementar</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.counterButton}
-          onPress={() => setCount((prev) => Math.max(0, prev - 1))}
-        >
-          <Text style={styles.buttonText}>Decrementar</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.decrement]}
+            onPress={() => setCount((prev) => prev - 1)}
+          >
+            <Text style={styles.buttonText}>Decrementar</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[styles.counterButton, { backgroundColor: "#ff0000" }]}
-          onPress={() => setCount(0)}
-        >
-          <Text style={styles.buttonText}>Reset</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.reset]}
+            onPress={() => setCount(0)}
+          >
+            <Text style={styles.buttonText}>Resetar</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 
+      <View style={styles.navGroup}>
         <TouchableOpacity
-          style={[styles.counterButton, { backgroundColor: "#ff0000" }]}
+          style={[styles.navButton, { backgroundColor: "#28a745" }]}
           onPress={() => navigation.navigate("Profile")}
         >
-          <Text style={styles.buttonText}>Ir para perfil</Text>
+          <Text style={styles.buttonText}>Ir para Perfil</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -55,30 +60,60 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: 40,
+    paddingHorizontal: 20,
     backgroundColor: "#f0f0f0",
+    justifyContent: "center",
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 20,
+    textAlign: "center",
+    marginBottom: 30,
   },
-  counterContainer: {
+  counterBox: {
     alignItems: "center",
+    marginBottom: 30,
   },
   counterText: {
-    fontSize: 18,
-    marginBottom: 10,
+    fontSize: 22,
+    fontWeight: "600",
+    marginBottom: 20,
   },
-  counterButton: {
+  buttonGroup: {
+    width: "100%",
+    alignItems: "center",
+  },
+  button: {
+    width: "80%",
+    padding: 15,
+    borderRadius: 8,
+    alignItems: "center",
+    marginVertical: 8,
+  },
+  increment: {
     backgroundColor: "#007bff",
-    padding: 10,
-    borderRadius: 5,
-    marginVertical: 5,
+  },
+  decrement: {
+    backgroundColor: "#ffc107",
+  },
+  reset: {
+    backgroundColor: "#dc3545",
+  },
+  navGroup: {
+    marginTop: 20,
+    alignItems: "center",
+  },
+  navButton: {
+    width: "80%",
+    padding: 15,
+    borderRadius: 8,
+    marginVertical: 8,
+    alignItems: "center",
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
+    fontWeight: "600",
   },
 });

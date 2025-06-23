@@ -6,14 +6,10 @@ export default function FormScreen({ navigation }) {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    if (name.trim().length === 0) return;
-
-    const timeout = setTimeout(() => {
-      Alert.alert("Entrada", `Você digitou: ${name}`);
-    }, 5000);
-
-    return () => clearTimeout(timeout);
-  }, [name]);
+    if (name.length > 0) {
+      console.log(`Entrada, nome: ${name}`);
+    }
+  });
 
   const handleSubmit = () => {
     if (name.trim() !== "") {
@@ -58,9 +54,9 @@ export default function FormScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f0f0f0",
   },
   title: {
     fontSize: 24,
