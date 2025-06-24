@@ -6,7 +6,7 @@ export default function ProfileScreen({ navigation }) {
       <Text style={styles.title}>Tela de perfil</Text>
 
       <TouchableOpacity
-        style={styles.button}
+        style={[styles.button, { backgroundColor: "#17a2b8" }]}
         onPress={() => navigation.navigate("Home")}
       >
         <Text style={styles.buttonText}>Voltar para Home</Text>
